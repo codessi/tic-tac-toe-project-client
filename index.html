@@ -12,6 +12,24 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>TIC TAC TOE</h1>
+    
+      <form>
+        <fieldset>
+          <legend>Sign Up</legend>
+          <form id="sign-up-form">
+            <label for="sign-up-email">Email</label>
+            <input  required id="sign-up-email" type="email" name ="credentials[email]" placeholder="Email"/>
+            
+            <label for="sign-up-password">Password</label>
+            <input required id="sign-up-password" type="password" name ="credentials[password]" placeholder="Password"/>
+            
+            <label for="sign-up-password-confirmation">Confirm Password</label>
+            <input required id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
+
+            <input type="submit" value="Submit"/>
+          </form>
+        </fieldset>
+      </form>
     </body>
 </html>
