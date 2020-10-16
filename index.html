@@ -20,13 +20,13 @@
           <legend>Sign Up</legend>
           
             <label for="sign-up-email">Email</label>
-            <input  required id="sign-up-email" type="email" name ="credentials[email]" placeholder="Email"/>
+            <input  id="sign-up-email" type="email" name ="credentials[email]" placeholder="Email"/>
             
             <label for="sign-up-password">Password</label>
-            <input required id="sign-up-password" type="password" name ="credentials[password]" placeholder="Password"/>
+            <input id="sign-up-password" type="password" name ="credentials[password]" placeholder="Password"/>
             
             <label for="sign-up-password-confirmation">Confirm Password</label>
-            <input required id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
+            <input id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
 
             <input type="submit" value="Submit"/>
         </fieldset>
@@ -38,15 +38,30 @@
         <legend>Sign-In</legend>
 
         <label for = "sign-in-email"></label>
-        <input required id="sign-in-email" type = "email" name = "credentials[email]" placeholder="Email"/>
+        <input id="sign-in-email" type = "email" name = "credentials[email]" placeholder="Email"/>
 
         <label for = "sign-in-password"></label>
-        <input required id="sign-in-password" type = "password" name ="credentials[password]" placeholder="Password"/> 
+        <input id="sign-in-password" type = "password" name ="credentials[password]" placeholder="Password"/> 
 
         <input type = "submit" value = "Submit">
         
       </fieldset>
     </form>
+    </section>
+    <section>
+      <form id='change-password-form'>
+        <fieldset>
+          <legend>Change Password</legend>
+
+          <label for = "change-password-old">Old Password</label>
+          <input id="change-password-old" type="password" name="passwords[old]" placeholder="Old Password"/>
+
+          <label for="change-password-new">New Password</label>
+          <input id = "change-password-new" type="password" name="passwords[new]">
+
+          <input type ="submit" value="Submit"> 
+        </fieldset>
+      </form>
     </section>
     </body>
 </html>

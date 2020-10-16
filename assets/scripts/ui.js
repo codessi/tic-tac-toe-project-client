@@ -1,4 +1,5 @@
 'use strict'
+const store = require('./store')
 
 const signUpSuccess = function (response) {
   $('#message').html('Sign Up of ' + response.user.email + ' is successful! ')
@@ -9,14 +10,25 @@ const signUpFail = function () {
 
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
+  store.user = response.user
 }
+
 const signInFail = function () {
   $('#message').html('Sign In failed,  try again')
 }
 
+const changePasswordSuccess = function (response) {
+  $('#message').html('Password Change Success, Let\'s play')
+}
+
+const changePasswordFail = function (response) {
+  $('#message').html('Password Change failed,  try again')
+}
 module.exports = {
   signUpSuccess,
   signUpFail,
   signInSuccess,
-  signInFail
+  signInFail,
+  changePasswordSuccess,
+  changePasswordFail
 }
