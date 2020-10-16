@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -32,5 +32,21 @@
         </fieldset>
       </form>
     </section>  
+    <section>
+      <form id="sign-in-form">
+      <fieldset>
+        <legend>Sign-In</legend>
+
+        <label for = "sign-in-email"></label>
+        <input required id="sign-in-email" type = "email" name = "credentials[email]" placeholder="Email"/>
+
+        <label for = "sign-in-password"></label>
+        <input required id="sign-in-password" type = "password" name ="credentials[password]" placeholder="Password"/> 
+
+        <input type = "submit" value = "Submit">
+        
+      </fieldset>
+    </form>
+    </section>
     </body>
 </html>
