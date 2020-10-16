@@ -32,6 +32,17 @@ const signOutSuccess = function () {
 const signOutFail = function (response) {
   $('#message').html('Sign Out Fail')
 }
+
+const onGameIndexSuccess = function (response) {
+  const game = response.games
+
+  $('#index-display').html(`<h1>show something ${game}</h1>`)
+  // {"games":[]}
+}
+const onGameIndexFail = function (response) {
+  $('#index-display').html('Display Failed')
+  // {"games":[]}
+}
 module.exports = {
   signUpSuccess,
   signUpFail,
@@ -40,5 +51,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFail,
   signOutSuccess,
-  signOutFail
+  signOutFail,
+  onGameIndexSuccess,
+  onGameIndexFail
 }

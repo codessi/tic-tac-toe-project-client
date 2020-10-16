@@ -12,4 +12,12 @@ $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#sign-out-form').on('submit', events.onSignOut)
+  $('#game-index').on('click', events.onGameIndex)
 })
+
+  
+ /*  {"game":
+  {"cells":["","","","","","","","",""],
+  "over":false,"_id":"5f89fc05772a0a00170d786a","owner":"5f897fd3772a0a00170d7715","createdAt":"2020-10-16T20:01:09.682Z","updatedAt":"2020-10-16T20:01:09.682Z",
+  "__v":0}}  */
+

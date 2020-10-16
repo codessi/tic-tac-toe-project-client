@@ -37,13 +37,25 @@ const signOut = function (data) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    method:'DELETE',
+    method: 'DELETE',
     data
+  })
+}
+
+const gameIndex = function () {
+  console.log('gameIndex is firing')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    method: 'GET'
   })
 }
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  gameIndex
 }
