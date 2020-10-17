@@ -73,15 +73,27 @@
     </section>
     <section>
       <h2>Game Index</h2>
+      <!-- -------------- -->
       <button id ="game-index">Game Index</button>
-      <div id = "index-display">Game Display</div>
+      <p id = "index-display">Game Display</p>
     </section>
     <section>
 
       <button id ="game-create">Game Create</button>
-      <button id ="game-delete">Game Delete</button>
-      <button id ="show">Game Show</button>
-      <button id ="game-delete">Game Delete</button>
+    <form>
+      <label for="delete-game"></label>
+      <input id="delete-game" type="text" name="">
+      <button id ="game-destory">Game Destory</button>
+    </form>
+      <button id ="game-show">Game Show</button>
+      <!-- ______________-________ -->
+    <form id="game-update">
+      <input type="text" name="game[index]" placeholder="index">
+      <input type="text" name="game[value]" placeholder="o or x">
+      <input type="text" name="game[over]" placeholder="true or false">
+      <input type="submit" Value =" game update">
+    
+    </form>
     </section>
   <!--   
     {"game":
@@ -89,5 +101,16 @@
          "over":false,"_id":"5f89fc05772a0a00170d786a","owner":"5f897fd3772a0a00170d7715","createdAt":"2020-10-16T20:01:09.682Z","updatedAt":"2020-10-16T20:01:09.682Z",
          "__v":0}} 
     -->
+    <section id="board">
+      <div data-cell-index= "0"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
     </body>
 </html>

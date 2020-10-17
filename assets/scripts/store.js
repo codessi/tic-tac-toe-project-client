@@ -2,5 +2,11 @@
 
 const store = {
 }
+const store2 = {
 
-module.exports = store
+}
+
+module.exports = {
+  store,
+  store2
+}

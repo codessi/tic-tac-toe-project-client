@@ -49,16 +49,57 @@ const onSignOut = function (event) {
 
 const onGameIndex = function (event) {
   event.preventDefault()
-  // console.log('onGameIndex is firing')
+  console.log(api.gameIndex())
   api.gameIndex()
     .then(ui.onGameIndexSuccess)
     .catch(ui.onGameIndexFail)
+
+}
+// ---------------------
+const onGameCreate = function (event) {
+  event.preventDefault()
+  console.log('onGameCreae is firing')
+  api.gameCreate()
+    .then(ui.onGameCreateSuccess)
+    .catch(ui.onGameCreateFail)
 }
 
+const onGameDestory = function (event) {
+  event.preventDefault()
+  // console.log('onGameDestory is firing')
+  api.gameDestory()
+    .then(ui.onGameDestorySuccess)
+    .catch(ui.onGameDestoryFail)
+}
+
+const onGameShow = function (event) {
+  event.preventDefault()
+  console.log('onGameShow is firing')
+  api.gameShow()
+    .then(ui.onGameShowSuccess)
+    .catch(ui.onGameShowFail)
+    
+  
+}
+// ---------------------
+const onGameUpdate = function (event) {
+  event.preventDefault()
+  console.log('onGameUpdate is firing')
+  const form = event.target
+  const data = getFormFields(form)
+  api.gameUpdate(data)
+  console.log(api.gameUpdate(data))
+    // .then(ui.onGameUpdateSuccess)
+    // .catch(ui.onGameUpdateFail)
+}
 module.exports = {
   onSignUp,
   onSignIn,
   onPasswordChange,
   onSignOut,
-  onGameIndex
+  onGameIndex,
+  onGameCreate,
+  onGameDestory,
+  onGameShow,
+  onGameUpdate
 }

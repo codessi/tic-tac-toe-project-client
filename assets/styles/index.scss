@@ -1,1 +1,16 @@
 @import '~bootstrap/scss/bootstrap';
+
+#board {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ width: 610px;
+ height: 610px;
+
+}
+div{
+  border: #000000 solid 5px;
+  width: 200px;
+  height: 200px;
+  
+}

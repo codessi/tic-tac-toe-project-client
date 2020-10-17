@@ -1,6 +1,6 @@
 'use strict'
 const store = require('./store')
-
+// const store = require('./store')
 const signUpSuccess = function (response) {
   $('#message').html('Sign Up of ' + response.user.email + ' is successful! ')
 }
@@ -10,7 +10,7 @@ const signUpFail = function () {
 
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
-  store.user = response.user
+  store.store.user = response.user
 }
 
 const signInFail = function () {
@@ -35,14 +35,29 @@ const signOutFail = function (response) {
 
 const onGameIndexSuccess = function (response) {
   const game = response.games
-
-  $('#index-display').html(`<h1>show something ${game}</h1>`)
+ console.log(response)
+ console.log(response.games)
+  $('#index-display').html(`<h1>${game}</h1>`)
   // {"games":[]}
 }
 const onGameIndexFail = function (response) {
   $('#index-display').html('Display Failed')
   // {"games":[]}
 }
+
+const onGameCreateSuccess = function (response) {
+  // const game = response.games
+  store.store2 = response
+  const game = store.store2.game
+  console.log(store.store2)
+  console.log(store.store2.game._id)
+  console.log(store.store)
+  console.log(store.store.user.token)
+  $('#index-display').html(`<h1>show something ${game}</h1>`)
+  // {"games":[]}
+}
+
+
 module.exports = {
   signUpSuccess,
   signUpFail,
@@ -53,5 +68,6 @@ module.exports = {
   signOutSuccess,
   signOutFail,
   onGameIndexSuccess,
-  onGameIndexFail
+  onGameIndexFail,
+  onGameCreateSuccess
 }

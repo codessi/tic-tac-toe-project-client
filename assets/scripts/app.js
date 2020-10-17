@@ -13,6 +13,13 @@ $(() => {
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#game-index').on('click', events.onGameIndex)
+  $('#game-create').on('click', events.onGameCreate)
+ 
+  $('#game-destory').on('click', events.onGameDestory)
+ 
+  $('#game-show').on('click', events.onGameShow)
+   // -------------
+  $('#game-update').on('submit', events.onGameUpdate)
 })
 
   

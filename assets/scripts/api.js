@@ -43,13 +43,60 @@ const signOut = function (data) {
 }
 
 const gameIndex = function () {
-  console.log('gameIndex is firing')
+  // console.log('gameIndex is firing')
   return $.ajax({
     url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.store.user.token
+    },
+    method: 'GET'
+  })
+}
+// console.log(gameIndex())
+// ----------------
+const gameCreate = function (data) {
+  // console.log('gameIndex is firing')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {
+      Authorization: 'Bearer ' + store.store.user.token
+    },
+    method: 'POST',
+    data
+  })
+}
+// ------------------------
+const gameDestory = function (data) {
+  // console.log('gameDestory is firing')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.user.game._id,
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    method: 'DELETE'
+  })
+}
+
+const gameShow = function (data) {
+  // console.log('gameIndex is firing')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + data.game._id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     method: 'GET'
+  })
+}
+// ---------------------
+const gameUpdate = function (data) {
+  // console.log('gameIndex is firing')
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.store2.game._id,
+    headers: {
+      Authorization: 'Bearer ' + store.store.user.token
+    },
+    method: 'PATCH',
+    data
   })
 }
 module.exports = {
@@ -57,5 +104,9 @@ module.exports = {
   signIn,
   changePassword,
   signOut,
-  gameIndex
+  gameIndex,
+  gameCreate,
+  gameDestory,
+  gameShow,
+  gameUpdate
 }
