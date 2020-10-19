@@ -13,7 +13,7 @@ $(() => {
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#game-index').on('click', events.onGameIndex)
-  $('#game-create').on('click', events.onGameCreate)
+  $('#game-create').on('click', events.onGameCreate, counter += 1)
  
   $('#game-destory').on('click', events.onGameDestory)
   $('#game-show').on('click', events.onGameShow)
@@ -21,42 +21,84 @@ $(() => {
 //   $('#game-update').on('click', events.onGameUpdate)
 })
 
-  
- /*  {"game":
-  {"cells":["","","","","","","","",""],
-  "over":false,"_id":"5f89fc05772a0a00170d786a","owner":"5f897fd3772a0a00170d7715","createdAt":"2020-10-16T20:01:09.682Z","updatedAt":"2020-10-16T20:01:09.682Z",
-  "__v":0}}  */
-const boardArr = ['', '', '', '', '', '', '', '', '']
+const arr = ['', '', '', '', '', '', '', '', '']
 let player = 'x'
 let counter = 0
 let over = false
-let index 
+let index
 
 $('.square-box').on('click', function (e) {
-  if (player === 'x') {
+  if (player === 'x' & over === false) {
     $(e.target).css('background-image', 'url(./../../public/x.png)')
     $(e.target).text('X')
     index = e.target.id
-    boardArr[index]='x'
-    // console.log(boardArr)
+    arr[index] = 'x'
+    console.log(index)
     player = 'o'
-    updateGame(index,'x',over)
+
+    
+    
+    updateGame(index, 'x', over)
 
     // $(e.target).prop('disabled', true)
     // const index = Number($(e.target).attr('id'))
     // game[index] = 'X'
-    } else {
+    } else { if (over === false) {
     
     $(e.target).css('background-image', 'url(./../../public/o.png)')
     $(e.target).text('o')
+    
     index = e.target.id
-    boardArr[index] ='o'
-    // console.log(boardArr)
+    arr[index] ='o'
+    // console.log(arr)
     player = 'x'
     updateGame(index, 'o', over)
+    }
   }
+  $(e.target).off('click')
+  checkforwin()
+  console.log(over)
+  
+  
 })
 
+const checkforwin = function () {
+
+  if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
+    over = true
+    $('#display').text(player + 'won')
+  }
+
+  else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
+    over = true
+    $('#display').text('won')
+  }
+
+  else if (arr[6] !== "" & arr[6] === arr[7] & arr[6] === arr[8]) {
+    over = true
+    $('#display').text('won')
+  }
+  else if (arr[0] !== "" & arr[0] === arr[3] & arr[0] === arr[6]) {
+    over = true
+    $('#display').text('won')
+  }
+  else if (arr[1] !== "" & arr[1] === arr[4] & arr[1] === arr[7]) {
+    over = true
+    $('#display').text('won')
+  }
+  else if (arr[2] !== "" & arr[2] === arr[5] & arr[2] === arr[8]) {
+    over = true
+    $('#display').text('won')
+  }
+  else if (arr[0] !== "" & arr[0] === arr[4] & arr[0] === arr[8]) {
+    over = true
+    $('#display').text('won')
+  }
+  else if (arr[2] !== "" & arr[2] === arr[4] & arr[2] === arr[6]) {
+    over = true
+    $('#display').text('won')
+  } 
+}
 const updateGame = function (index, value, over) {
   const data = {
     'game': {

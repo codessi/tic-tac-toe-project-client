@@ -56,6 +56,7 @@ const gameIndex = function () {
 // ----------------
 const gameCreate = function (data) {
   // console.log('gameIndex is firing')
+
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
@@ -110,4 +111,3 @@ module.exports = {
   gameShow,
   gameUpdate
 }
- 

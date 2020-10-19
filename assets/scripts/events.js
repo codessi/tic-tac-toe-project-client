@@ -62,6 +62,7 @@ const onGameIndex = function (event) {
 const onGameCreate = function (event) {
   event.preventDefault()
   console.log('onGameCreae is firing')
+  
   console.log(api.gameCreate())
   api.gameCreate()
     .then(ui.onGameCreateSuccess)

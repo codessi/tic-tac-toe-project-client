@@ -40,7 +40,7 @@ const onGameIndexSuccess = function (response) {
   const game = response.games
   console.log(response)
   console.log(response.games)
-  $('#index-display').html(`<h1>${game}</h1>`)
+  $('#index-display').html(`<h1>${response.games.cells}</h1>`)
   // {"games":[]}
 }
 const onGameIndexFail = function (response) {
