@@ -19,7 +19,10 @@ const onSignIn = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-
+  console.log(event.target)
+  console.log(data)
+  const foo = 2
+  console.log(foo)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFail)
@@ -59,6 +62,7 @@ const onGameIndex = function (event) {
 const onGameCreate = function (event) {
   event.preventDefault()
   console.log('onGameCreae is firing')
+  console.log(api.gameCreate())
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
     .catch(ui.onGameCreateFail)
@@ -82,15 +86,15 @@ const onGameShow = function (event) {
   
 }
 // ---------------------
-const onGameUpdate = function (event) {
-  event.preventDefault()
-  console.log('onGameUpdate is firing')
-  const form = event.target
-  const data = getFormFields(form)
+const onGameUpdate = function (data) {
+  // event.preventDefault()
+  // console.log('onGameUpdate is firing')
+  // const data = event.target
+  
+  console.log(data)
   api.gameUpdate(data)
-  console.log(api.gameUpdate(data))
-    // .then(ui.onGameUpdateSuccess)
-    // .catch(ui.onGameUpdateFail)
+    .then(ui.onGameUpdateSuccess)
+    .catch(ui.onGameUpdateFail)
 }
 module.exports = {
   onSignUp,

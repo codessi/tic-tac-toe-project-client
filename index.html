@@ -88,29 +88,33 @@
       <button id ="game-show">Game Show</button>
       <!-- ______________-________ -->
     <form id="game-update">
-      <input type="text" name="game[index]" placeholder="index">
-      <input type="text" name="game[value]" placeholder="o or x">
+      
+      <input type="number" name="game[cell][index]" placeholder="index">
+      <input type="text" name="game[cell][value]" placeholder="o or x">
       <input type="text" name="game[over]" placeholder="true or false">
       <input type="submit" Value =" game update">
-    
     </form>
     </section>
+    <br>
   <!--   
     {"game":
          {"cells":["","","","","","","","",""],
          "over":false,"_id":"5f89fc05772a0a00170d786a","owner":"5f897fd3772a0a00170d7715","createdAt":"2020-10-16T20:01:09.682Z","updatedAt":"2020-10-16T20:01:09.682Z",
          "__v":0}} 
     -->
-    <section id="board">
-      <div data-cell-index= "0"></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <section id ="board">
+      <div id="0" class= "square-box"></div>
+      <div id="1" class= "square-box" ></div>
+      <div id="2" class= "square-box" ></div>
+      <div id="3" class= "square-box" ></div>
+      <div id="4" class= "square-box" ></div>
+      <div id="5" class= "square-box" ></div>
+      <div id="6" class= "square-box" ></div>
+      <div id="7" class= "square-box" ></div>
+      <div id="8" class= "square-box" ></div>
+
+
+
     </section>
     </body>
 </html>

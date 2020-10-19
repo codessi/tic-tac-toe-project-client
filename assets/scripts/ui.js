@@ -10,7 +10,10 @@ const signUpFail = function () {
 
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
-  store.store.user = response.user
+  store.user = response.user
+  console.log(response)
+  console.log(store.user)
+  console.log(store)
 }
 
 const signInFail = function () {
@@ -35,8 +38,8 @@ const signOutFail = function (response) {
 
 const onGameIndexSuccess = function (response) {
   const game = response.games
- console.log(response)
- console.log(response.games)
+  console.log(response)
+  console.log(response.games)
   $('#index-display').html(`<h1>${game}</h1>`)
   // {"games":[]}
 }
@@ -47,14 +50,27 @@ const onGameIndexFail = function (response) {
 
 const onGameCreateSuccess = function (response) {
   // const game = response.games
-  store.store2 = response
-  const game = store.store2.game
-  console.log(store.store2)
-  console.log(store.store2.game._id)
-  console.log(store.store)
-  console.log(store.store.user.token)
-  $('#index-display').html(`<h1>show something ${game}</h1>`)
+
+  store.game = response.game
+  console.log(response)
+  console.log(store)
+  console.log(store.game)
+  // console.log(store.game.game._id)
+  console.log(store.game.cells)
+  // const game = store.store2.game
+  // console.log(store.store2)
+  // console.log(store.store2.game._id)
+  // console.log(store.store)
+  // console.log(store.store.user.token)
+  $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
   // {"games":[]}
+}
+const onGameUpdateSuccess = function (response) {
+  console.log('onGameUpdateSuccess')
+  store.game = response.game
+  console.log(store.game)
+  $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
+  
 }
 
 
@@ -69,5 +85,6 @@ module.exports = {
   signOutFail,
   onGameIndexSuccess,
   onGameIndexFail,
-  onGameCreateSuccess
+  onGameCreateSuccess,
+  onGameUpdateSuccess
 }

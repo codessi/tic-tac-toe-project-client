@@ -47,7 +47,7 @@ const gameIndex = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
-      Authorization: 'Bearer ' + store.store.user.token
+      Authorization: 'Bearer ' + store.user.token
     },
     method: 'GET'
   })
@@ -59,7 +59,7 @@ const gameCreate = function (data) {
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
-      Authorization: 'Bearer ' + store.store.user.token
+      Authorization: 'Bearer ' + store.user.token
     },
     method: 'POST',
     data
@@ -69,7 +69,7 @@ const gameCreate = function (data) {
 const gameDestory = function (data) {
   // console.log('gameDestory is firing')
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.user.game._id,
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
@@ -80,23 +80,23 @@ const gameDestory = function (data) {
 const gameShow = function (data) {
   // console.log('gameIndex is firing')
   return $.ajax({
-    url: config.apiUrl + '/games/' + data.game._id,
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
       Authorization: 'Bearer ' + store.user.token
     },
     method: 'GET'
   })
 }
-// ---------------------
+// -----------------  ----
 const gameUpdate = function (data) {
-  // console.log('gameIndex is firing')
+  console.log('gameUpdate is firing')
   return $.ajax({
-    url: config.apiUrl + '/games/' + store.store2.game._id,
+    url: config.apiUrl + '/games/' + store.game._id,
     headers: {
-      Authorization: 'Bearer ' + store.store.user.token
+      Authorization: 'Bearer ' + store.user.token
     },
     method: 'PATCH',
-    data
+    data: data
   })
 }
 module.exports = {
@@ -110,3 +110,4 @@ module.exports = {
   gameShow,
   gameUpdate
 }
+ 
