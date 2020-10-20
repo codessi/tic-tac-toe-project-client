@@ -9,14 +9,21 @@ const events = require('./events')
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
+  $('#sign-up-form').hide()
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onPasswordChange)
+  $('#change-password-form').hide()
   $('#sign-out-form').on('submit', events.onSignOut)
+  $('#sign-out-form').hide()
   $('#game-index').on('click', events.onGameIndex)
+  $('#game-index').hide()
   $('#game-create').on('click', events.onGameCreate)
+  // $('#game-create').hide()
  
   $('#game-destory').on('click', events.onGameDestory)
+  $('#game-destory').hide()
   $('#game-show').on('click', events.onGameShow)
+  $('#game-show').hide()
    // -------------
 //   $('#game-update').on('click', events.onGameUpdate)
 })
@@ -35,8 +42,6 @@ $('.square-box').on('click', function (e) {
     arr[index] = 'x'
     console.log(index)
     player = 'o'
-
-    
     
     updateGame(index, 'x', over)
 
@@ -63,41 +68,45 @@ $('.square-box').on('click', function (e) {
 })
 
 const checkforwin = function () {
+  
 
   if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
     over = true
-    $('#display').text(player + 'won')
+    $('#display').text('player ' + player + ' won')
   }
 
   else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
 
   else if (arr[6] !== "" & arr[6] === arr[7] & arr[6] === arr[8]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
   else if (arr[0] !== "" & arr[0] === arr[3] & arr[0] === arr[6]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
   else if (arr[1] !== "" & arr[1] === arr[4] & arr[1] === arr[7]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
   else if (arr[2] !== "" & arr[2] === arr[5] & arr[2] === arr[8]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
   else if (arr[0] !== "" & arr[0] === arr[4] & arr[0] === arr[8]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   }
   else if (arr[2] !== "" & arr[2] === arr[4] & arr[2] === arr[6]) {
     over = true
-    $('#display').text('won')
+    $('#display').text('player ' + player + ' won')
   } 
+  if (arr.indexOf("") === -1) {
+    $('#display').text('It\'s a tie!')
+  }
 }
 const updateGame = function (index, value, over) {
   const data = {
@@ -110,4 +119,9 @@ const updateGame = function (index, value, over) {
     }
   }
   events.onGameUpdate(data)
+}
+
+module.exports =
+{
+  arr
 }

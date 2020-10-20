@@ -2,6 +2,7 @@
 const api = require('./api')
 const getFormFields = require('./../../lib/get-form-fields')
 const ui = require('./ui')
+const app = require('./app')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -62,6 +63,7 @@ const onGameIndex = function (event) {
 const onGameCreate = function (event) {
   event.preventDefault()
   console.log('onGameCreae is firing')
+  app.arr = ['', '', '', '', '', '', '', '', '']
   
   console.log(api.gameCreate())
   api.gameCreate()
@@ -106,5 +108,6 @@ module.exports = {
   onGameCreate,
   onGameDestory,
   onGameShow,
-  onGameUpdate
+  onGameUpdate,
+  
 }
