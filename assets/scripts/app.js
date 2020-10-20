@@ -24,6 +24,8 @@ $(() => {
   $('#game-destory').hide()
   $('#game-show').on('click', events.onGameShow)
   $('#game-show').hide()
+  $('#board').hide()
+  $('#display').hide()
    // -------------
 //   $('#game-update').on('click', events.onGameUpdate)
 })

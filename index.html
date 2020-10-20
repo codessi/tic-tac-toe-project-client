@@ -12,12 +12,12 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
 
-    <body>
-      <div class="container">
+    <body class="text-center">
+      <div>
         <h1>TIC TAC TOE</h1>
-        <h1 id="message">Message here</h1>
+        <h1 id="message"></h1>
       <section>
-        <form id="sign-up-form">
+        <form class= "form-signin" id="sign-up-form">
           <fieldset>
             <legend>Sign Up</legend>
             
@@ -30,22 +30,21 @@
               <label for="sign-up-password-confirmation">Confirm Password</label>
               <input id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
 
-              <input type="submit" value="Submit"/>
+              <button class="btn btn-lg btn-primary btn-block"type="submit" value="Submit"></button>
           </fieldset>
         </form>
       </section>  
       <section>
         <form id="sign-in-form">
         <fieldset>
-          <legend>Sign-In</legend>
+          <h1 class="h3 mb-3 font-weight-normal ">Please Sign in</h1>
 
           <label for = "sign-in-email"></label>
-          <input id="sign-in-email" type = "text" name = "credentials[email]" placeholder="Email"/>
+          <input class="form-control "id="sign-in-email" type = "text" name = "credentials[email]" placeholder="Email"/>
+          <input class="form-control " id="sign-in-password" type = "password" name ="credentials[password]" placeholder="Password"/> 
           <br>
-          <label for = "sign-in-password"></label>
-          <input id="sign-in-password" type = "password" name ="credentials[password]" placeholder="Password"/> 
+          <button class="btn btn-lg btn-primary btn-block" type = "submit" value = "Submit">Sign in</button>
           <br>
-          <input type = "submit" value = "Submit">
           
         </fieldset>
       </form>
@@ -74,14 +73,14 @@
         </form>
       </section>
       <section>
-        <h2>Game Index</h2>
         <!-- -------------- -->
-        <button id ="game-index">Game Index</button>
+        <button class="btn btn-lg btn-primary btn-block" id ="game-index">Game Index</button>
         <h1 id = "display">Game Display</h1>
+        <h2 id = "index-display"></h2>
       </section>
       <section>
 
-        <button id ="game-create">Game Create</button>
+        <button id ="game-create">Start New Game</button>
       <form>
         <label for="delete-game"></label>
         <!-- <input id="delete-game" type="text" name=""> -->

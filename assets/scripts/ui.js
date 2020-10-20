@@ -1,6 +1,7 @@
 'use strict'
+const events = require('./events')
 const store = require('./store')
-// const store = require('./store')
+
 const signUpSuccess = function (response) {
   $('#message').html('Sign Up of ' + response.user.email + ' is successful! ')
 }
@@ -11,12 +12,15 @@ const signUpFail = function () {
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
   store.user = response.user
-  console.log(response)
-  console.log(store.user)
-  console.log(store)
+  $('#board').show()
+  $('#sign-in-form').hide()
+  
+  $('#message').delay(1000).fadeOut('slow')
+  // events.onGameCreate() //<<<<< witout this signs in fine.
 }
 
-const signInFail = function () {
+
+const signInFail = function (response) {
   $('#message').html('Sign In failed,  try again')
 }
 
@@ -40,30 +44,27 @@ const onGameIndexSuccess = function (response) {
   const game = response.games
   console.log(response)
   console.log(response.games)
-  $('#index-display').html(`<h1>${response.games.cells}</h1>`)
-  // {"games":[]}
+  $('#index-display').html(`<h1> Number of play: ${game.length}</h1>`)
+ 
 }
 const onGameIndexFail = function (response) {
   $('#index-display').html('Display Failed')
-  // {"games":[]}
+ 
 }
 
 const onGameCreateSuccess = function (response) {
   // const game = response.games
-
+  $('#board').show()
+  $('.square-box').css("background-image","")
   store.game = response.game
-  console.log(response)
-  console.log(store)
-  console.log(store.game)
-  // console.log(store.game.game._id)
-  console.log(store.game.cells)
-  // const game = store.store2.game
-  // console.log(store.store2)
-  // console.log(store.store2.game._id)
-  // console.log(store.store)
-  // console.log(store.store.user.token)
-  $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
-  // {"games":[]}
+  app.arr = ['', '', '', '', '', '', '', '', '']
+  $('#square-box').on('click')
+  // $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
+ 
+}
+
+const onGameCreateFail = function (response) {
+  $('#message').html('Sorry, Create Game Unsuccessful')
 }
 const onGameUpdateSuccess = function (response) {
   console.log('onGameUpdateSuccess')
@@ -86,5 +87,6 @@ module.exports = {
   onGameIndexSuccess,
   onGameIndexFail,
   onGameCreateSuccess,
+  onGameCreateFail,
   onGameUpdateSuccess
 }

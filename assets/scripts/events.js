@@ -20,12 +20,11 @@ const onSignIn = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  console.log(event.target)
-  console.log(data)
-  const foo = 2
-  console.log(foo)
+  // console.log(event.target)
+  // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
+    // .then(onGameCreate())
     .catch(ui.signInFail)
 }
 
@@ -62,10 +61,10 @@ const onGameIndex = function (event) {
 // ---------------------
 const onGameCreate = function (event) {
   event.preventDefault()
-  console.log('onGameCreae is firing')
-  app.arr = ['', '', '', '', '', '', '', '', '']
-  
-  console.log(api.gameCreate())
+  // $('#board').show()
+  // console.log('onGameCreae is firing')
+  // app.arr = ['', '', '', '', '', '', '', '', '']
+  // console.log(api.gameCreate())
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
     .catch(ui.onGameCreateFail)
@@ -108,6 +107,5 @@ module.exports = {
   onGameCreate,
   onGameDestory,
   onGameShow,
-  onGameUpdate,
-  
+  onGameUpdate
 }

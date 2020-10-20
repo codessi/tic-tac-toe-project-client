@@ -1,5 +1,9 @@
 @import '~bootstrap/scss/bootstrap';
 
+html, body {
+  height: 100%;
+  }
+
 #board {
  display: flex;
  flex-wrap: wrap;
@@ -13,4 +17,16 @@
   width: 200px;
   height: 200px;
   
+}
+
+// input {
+//   margin : 10px;
+//   width: 250px;
+// }
+
+body{
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #f5f5f5;
 }
