@@ -21,16 +21,17 @@
           <fieldset>
             <legend>Sign Up</legend>
             
-              <label for="sign-up-email">Email</label>
-              <input  id="sign-up-email" type="text" name ="credentials[email]" placeholder="Email"/>
+              <!-- <label for="sign-up-email">Email</label><br> -->
+              <input class="form-control " id="sign-up-email" type="text" name ="credentials[email]" placeholder="Email"/>
+              
+              <!-- <label for="sign-up-password">Password</label><br> -->
+              <input class="form-control "id="sign-up-password" type="password" name ="credentials[password]" placeholder="Password"/>
+             
+              <!-- <label for="sign-up-password-confirmation">Confirm Password</label><br> -->
+              <input class="form-control "id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
               <br>
-              <label for="sign-up-password">Password</label>
-              <input id="sign-up-password" type="password" name ="credentials[password]" placeholder="Password"/>
               <br>
-              <label for="sign-up-password-confirmation">Confirm Password</label>
-              <input id="sign-up-password-confirmation" type="password" name ="credentials[password_confirmation]" placeholder="Confirm Password"/>
-
-              <button class="btn btn-lg btn-primary btn-block"type="submit" value="Submit"></button>
+              <button class="btn btn-lg btn-primary btn-block"type="submit" value="Submit">Sign Up</button>
           </fieldset>
         </form>
       </section>  
@@ -45,7 +46,8 @@
           <br>
           <button class="btn btn-lg btn-primary btn-block" type = "submit" value = "Submit">Sign in</button>
           <br>
-          
+          <a href="" id = "sign-up-link">Sign Up</a> <br>
+          <a href="" id ="change-password-link">Change Password</a>
         </fieldset>
       </form>
       </section>

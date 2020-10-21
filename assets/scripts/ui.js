@@ -4,6 +4,12 @@ const store = require('./store')
 
 const signUpSuccess = function (response) {
   $('#message').html('Sign Up of ' + response.user.email + ' is successful! ')
+  store.user = response.user
+  // $('#game-create').show()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').show()
+
+  $('#message').delay(1000).fadeOut('slow')
 }
 const signUpFail = function () {
   $('#message').html('Sign Up failed,  try again')
@@ -12,7 +18,7 @@ const signUpFail = function () {
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
   store.user = response.user
-  $('#board').show()
+  $('#game-create').show()
   $('#sign-in-form').hide()
   
   $('#message').delay(1000).fadeOut('slow')
@@ -42,6 +48,7 @@ const signOutFail = function (response) {
 
 const onGameIndexSuccess = function (response) {
   const game = response.games
+  
   console.log(response)
   console.log(response.games)
   $('#index-display').html(`<h1> Number of play: ${game.length}</h1>`)
@@ -57,9 +64,10 @@ const onGameCreateSuccess = function (response) {
   $('#board').show()
   $('.square-box').css("background-image","")
   store.game = response.game
-  app.arr = ['', '', '', '', '', '', '', '', '']
-  $('#square-box').on('click')
-  // $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
+  // app.arr = ['', '', '', '', '', '', '', '', '']
+  // $('#square-box').on('click')
+  // $('#dispaly').show()
+  $('#index-display').html(`<h1>Lets Play ${store.game.cells}</h1>`)
  
 }
 

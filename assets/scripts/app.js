@@ -10,15 +10,26 @@ const events = require('./events')
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-up-form').hide()
+  $('#sign-up-link').on('click', function(e){
+    e.preventDefault()
+    $('#sign-up-form').show()
+    $('#sign-in-form').hide()
+  })
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#change-password-form').hide()
+  $('#change-password-link').on('click', function(e){
+    e.preventDefault()
+    $('#change-password-form').show()
+    $('#sign-in-form').hide()
+    })
+
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#sign-out-form').hide()
   $('#game-index').on('click', events.onGameIndex)
   $('#game-index').hide()
   $('#game-create').on('click', events.onGameCreate)
-  // $('#game-create').hide()
+  $('#game-create').hide()
  
   $('#game-destory').on('click', events.onGameDestory)
   $('#game-destory').hide()
@@ -39,38 +50,42 @@ let index
 $('.square-box').on('click', function (e) {
   if (player === 'x' & over === false) {
     $(e.target).css('background-image', 'url(./../../public/x.png)')
-    $(e.target).text('X')
+    // $(e.target).text('X')
     index = e.target.id
     arr[index] = 'x'
     console.log(index)
     player = 'o'
     
     updateGame(index, 'x', over)
+    checkforwin()
+    $(e.target).off('click')
 
     // $(e.target).prop('disabled', true)
     // const index = Number($(e.target).attr('id'))
     // game[index] = 'X'
-    } else { if (over === false) {
+    } else if (over === false) {
     
     $(e.target).css('background-image', 'url(./../../public/o.png)')
-    $(e.target).text('o')
+    // $(e.target).text('o')
     
     index = e.target.id
     arr[index] ='o'
     // console.log(arr)
     player = 'x'
     updateGame(index, 'o', over)
+    checkforwin()
+    $(e.target).off('click')
     }
   }
-  $(e.target).off('click')
-  checkforwin()
-  console.log(over)
+   
+ 
+  
+
   
   
-})
+)
 
 const checkforwin = function () {
-  
 
   if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
     over = true
