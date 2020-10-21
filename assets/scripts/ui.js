@@ -19,7 +19,7 @@ const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
   store.user = response.user
   $('#game-create').show()
-  $('#number-display').show()
+  // $('#number-display').show()
   // $('#board').show()
   console.log('signin response is '+ response)
   console.log(response.games)

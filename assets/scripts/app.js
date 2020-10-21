@@ -27,7 +27,7 @@ $(() => {
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#sign-out-form').hide()
   $('#game-index').on('click', events.onGameIndex) 
-  // $('#game-index').load(events.onGameIndex)
+  $('#game-index').hide()
 
   // $('#game-index').hide()
   $('#game-create').on('click', events.onGameCreate)
@@ -39,6 +39,7 @@ $(() => {
   $('#game-show').hide()
   $('#board').hide()
   $('#display').hide()
+  $('#number-display').hide()
    // -------------
 //   $('#game-update').on('click', events.onGameUpdate)
 })
