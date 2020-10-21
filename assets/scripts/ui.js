@@ -36,7 +36,8 @@ const signInFail = function (response) {
 }
 
 const changePasswordSuccess = function (response) {
-  $('#message').html('Password Change Success, Let\'s play')
+  $('#message').html('Password Change Success, Sign in with new password')
+  $('#sign-in-form').show()
 }
 
 const changePasswordFail = function (response) {

@@ -21,7 +21,7 @@ $(() => {
   $('#change-password-link').on('click', function (e) {
     e.preventDefault()
   $('#change-password-form').show()
-  $('#sign-in-form').hide()
+  // $('#sign-in-form').hide()
   })
 
   $('#sign-out-form').on('submit', events.onSignOut)
