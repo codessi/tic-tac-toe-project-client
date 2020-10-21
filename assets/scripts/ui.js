@@ -67,7 +67,7 @@ const onGameCreateSuccess = function (response) {
   // app.arr = ['', '', '', '', '', '', '', '', '']
   // $('#square-box').on('click')
   // $('#dispaly').show()
-  $('#index-display').html(`<h1>Lets Play ${store.game.cells}</h1>`)
+  $('#index-display').html(`<h1>Lets Play!</h1>`)
  
 }
 
@@ -78,7 +78,7 @@ const onGameUpdateSuccess = function (response) {
   console.log('onGameUpdateSuccess')
   store.game = response.game
   console.log(store.game)
-  $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
+  // $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
   
 }
 

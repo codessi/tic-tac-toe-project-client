@@ -18,11 +18,11 @@ $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#change-password-form').hide()
-  $('#change-password-link').on('click', function(e){
+  $('#change-password-link').on('click', function (e) {
     e.preventDefault()
-    $('#change-password-form').show()
-    $('#sign-in-form').hide()
-    })
+  $('#change-password-form').show()
+  $('#sign-in-form').hide()
+  })
 
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#sign-out-form').hide()
@@ -54,10 +54,10 @@ $('.square-box').on('click', function (e) {
     index = e.target.id
     arr[index] = 'x'
     console.log(index)
-    player = 'o'
     
-    updateGame(index, 'x', over)
     checkforwin()
+    updateGame(index, 'x', over)
+    player = 'o'
     $(e.target).off('click')
 
     // $(e.target).prop('disabled', true)
@@ -69,11 +69,12 @@ $('.square-box').on('click', function (e) {
     // $(e.target).text('o')
     
     index = e.target.id
-    arr[index] ='o'
+    arr[index] = 'o'
     // console.log(arr)
-    player = 'x'
-    updateGame(index, 'o', over)
+    
     checkforwin()
+    updateGame(index, 'o', over)
+    player = 'x'
     $(e.target).off('click')
     }
   }
@@ -89,40 +90,31 @@ const checkforwin = function () {
 
   if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-
-  else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-
-  else if (arr[6] !== "" & arr[6] === arr[7] & arr[6] === arr[8]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[6] !== "" & arr[6] === arr[7] & arr[6] === arr[8]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-  else if (arr[0] !== "" & arr[0] === arr[3] & arr[0] === arr[6]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[0] !== "" & arr[0] === arr[3] & arr[0] === arr[6]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-  else if (arr[1] !== "" & arr[1] === arr[4] & arr[1] === arr[7]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[1] !== "" & arr[1] === arr[4] & arr[1] === arr[7]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-  else if (arr[2] !== "" & arr[2] === arr[5] & arr[2] === arr[8]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[2] !== "" & arr[2] === arr[5] & arr[2] === arr[8]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-  else if (arr[0] !== "" & arr[0] === arr[4] & arr[0] === arr[8]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[0] !== "" & arr[0] === arr[4] & arr[0] === arr[8]) {
     over = true
-    $('#display').text('player ' + player + ' won')
-  }
-  else if (arr[2] !== "" & arr[2] === arr[4] & arr[2] === arr[6]) {
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (arr[2] !== "" & arr[2] === arr[4] & arr[2] === arr[6]) {
     over = true
-    $('#display').text('player ' + player + ' won')
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
   } 
   if (arr.indexOf("") === -1) {
-    $('#display').text('It\'s a tie!')
+    $('#index-display').html(`<h1><strong>It\'s Tie!!!</strong></h1>`)
   }
 }
 const updateGame = function (index, value, over) {
