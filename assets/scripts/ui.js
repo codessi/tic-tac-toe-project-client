@@ -19,6 +19,11 @@ const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
   store.user = response.user
   $('#game-create').show()
+  $('#number-display').show()
+  // $('#board').show()
+  console.log('signin response is '+ response)
+  console.log(response.games)
+  // $('#number-display').html(`Game No. ${store.game.length}`)  
   $('#sign-in-form').hide()
   
   $('#message').delay(1000).fadeOut('slow')
@@ -51,7 +56,7 @@ const onGameIndexSuccess = function (response) {
   
   console.log(response)
   console.log(response.games)
-  $('#index-display').html(`<h1> Number of play: ${game.length}</h1>`)
+  $('#number-display').html(`<h1> Number of play: ${game.length}</h1>`)
  
 }
 const onGameIndexFail = function (response) {
@@ -61,9 +66,13 @@ const onGameIndexFail = function (response) {
 
 const onGameCreateSuccess = function (response) {
   // const game = response.games
-  $('#board').show()
-  $('.square-box').css("background-image","")
   store.game = response.game
+  console.log(store)
+  $('#board').show()
+ 
+  $('.square-box').css("background-image","")
+  console.log('game index response is '+ response)
+  
   // app.arr = ['', '', '', '', '', '', '', '', '']
   // $('#square-box').on('click')
   // $('#dispaly').show()

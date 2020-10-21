@@ -28,7 +28,8 @@ const onSignIn = function (event) {
   // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then(onGameCreate())
+    // .then(onGameIndex)
+    // .then(onGameCreate)
     .catch(ui.signInFail)
 }
 
