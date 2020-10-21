@@ -21,7 +21,7 @@ $(() => {
   $('#change-password-link').on('click', function (e) {
     e.preventDefault()
   $('#change-password-form').show()
-  // $('#sign-in-form').hide()
+
   })
 
   $('#sign-out-form').on('submit', events.onSignOut)
@@ -29,7 +29,7 @@ $(() => {
   $('#game-index').on('click', events.onGameIndex) 
   $('#game-index').hide()
 
-  // $('#game-index').hide()
+
   $('#game-create').on('click', events.onGameCreate)
   $('#game-create').hide()
  
@@ -40,8 +40,7 @@ $(() => {
   $('#board').hide()
   $('#display').hide()
   $('#number-display').hide()
-   // -------------
-//   $('#game-update').on('click', events.onGameUpdate)
+
 })
 
 const arr = ['', '', '', '', '', '', '', '', '']
@@ -53,7 +52,7 @@ let index
 $('.square-box').on('click', function (e) {
   if (player === 'x' & over === false) {
     $(e.target).css('background-image', 'url(./../../public/x.png)')
-    // $(e.target).text('X')
+  
     index = e.target.id
     arr[index] = 'x'
     console.log(index)
@@ -63,17 +62,15 @@ $('.square-box').on('click', function (e) {
     player = 'o'
     $(e.target).off('click')
 
-    // $(e.target).prop('disabled', true)
-    // const index = Number($(e.target).attr('id'))
-    // game[index] = 'X'
+
     } else if (over === false) {
     
     $(e.target).css('background-image', 'url(./../../public/o.png)')
-    // $(e.target).text('o')
+
     
     index = e.target.id
     arr[index] = 'o'
-    // console.log(arr)
+
     
     checkforwin()
     updateGame(index, 'o', over)

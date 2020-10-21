@@ -6,14 +6,14 @@ const app = require('./app')
 
 const onSignUp = function (event) {
   event.preventDefault()
-  // console.log('onSignUp is firing')
+  
   const form = event.target
   const data = getFormFields(form)
 
-  // console.log(data)
+  
   api.signUp(data)
     .then(ui.signUpSuccess)
-    // .then(onSignIn)
+  
     .catch(ui.signUpFail)
 
 
@@ -24,12 +24,9 @@ const onSignIn = function (event) {
 
   const form = event.target
   const data = getFormFields(form)
-  // console.log(event.target)
-  // console.log(data)
+  
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then(onGameIndex)
-    // .then(onGameCreate)
     .catch(ui.signInFail)
 }
 
@@ -47,8 +44,7 @@ const onPasswordChange = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   console.log('onSignOut is firing')
-  // const form = event.target
-  // const data = getFormFields(form)
+
 
   api.signOut()
     .then(ui.signOutSuccess)
@@ -63,13 +59,10 @@ const onGameIndex = function (event) {
     .catch(ui.onGameIndexFail)
 
 }
-// ---------------------
+
 const onGameCreate = function (event) {
   event.preventDefault()
-  // $('#board').show()
-  // console.log('onGameCreae is firing')
-  // app.arr = ['', '', '', '', '', '', '', '', '']
-  // console.log(api.gameCreate())
+
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
     .catch(ui.onGameCreateFail)
@@ -77,7 +70,6 @@ const onGameCreate = function (event) {
 
 const onGameDestory = function (event) {
   event.preventDefault()
-  // console.log('onGameDestory is firing')
   api.gameDestory()
     .then(ui.onGameDestorySuccess)
     .catch(ui.onGameDestoryFail)
@@ -85,19 +77,14 @@ const onGameDestory = function (event) {
 
 const onGameShow = function (event) {
   event.preventDefault()
-  console.log('onGameShow is firing')
   api.gameShow()
     .then(ui.onGameShowSuccess)
     .catch(ui.onGameShowFail)
-    
-  
+
 }
-// ---------------------
+
 const onGameUpdate = function (data) {
-  // event.preventDefault()
-  // console.log('onGameUpdate is firing')
-  // const data = event.target
-  
+
   console.log(data)
   api.gameUpdate(data)
     .then(ui.onGameUpdateSuccess)

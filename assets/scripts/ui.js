@@ -18,7 +18,9 @@ const signUpFail = function () {
 const signInSuccess = function (response) {
   $('#message').html('Sign In of ' + response.user.email + ' is successful! ')
   store.user = response.user
+  $('#sign-out-form').show()
   $('#game-create').show()
+  
   // $('#number-display').show()
   // $('#board').show()
   console.log('signin response is '+ response)
@@ -41,15 +43,18 @@ const changePasswordSuccess = function (response) {
 }
 
 const changePasswordFail = function (response) {
+  $('#message').show()
   $('#message').html('Password Change failed,  try again')
 }
 
 const signOutSuccess = function () {
   $('#message').html('Sign Out Successfu,  Good Bye!')
+  $('#message').show()
 }
 
 const signOutFail = function (response) {
   $('#message').html('Sign Out Fail')
+  $('#message').show()
 }
 
 const onGameIndexSuccess = function (response) {
@@ -66,17 +71,11 @@ const onGameIndexFail = function (response) {
 }
 
 const onGameCreateSuccess = function (response) {
-  // const game = response.games
+ 
   store.game = response.game
   console.log(store)
   $('#board').show()
- 
   $('.square-box').css("background-image","")
-  console.log('game index response is '+ response)
-  
-  // app.arr = ['', '', '', '', '', '', '', '', '']
-  // $('#square-box').on('click')
-  // $('#dispaly').show()
   $('#index-display').html(`<h1>Lets Play!</h1>`)
  
 }
@@ -88,7 +87,6 @@ const onGameUpdateSuccess = function (response) {
   console.log('onGameUpdateSuccess')
   store.game = response.game
   console.log(store.game)
-  // $('#index-display').html(`<h1>New Game ${store.game.cells}</h1>`)
   
 }
 

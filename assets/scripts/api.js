@@ -8,7 +8,6 @@ const signUp = function (data) {
     method: 'POST',
     data: data
   })
-  // console.log('sign up is firing')
 }
 
 const signIn = function (data) {
@@ -52,10 +51,9 @@ const gameIndex = function () {
     method: 'GET'
   })
 }
-// console.log(gameIndex())
-// ----------------
+
 const gameCreate = function (data) {
-  // console.log('gameIndex is firing')
+
 
   return $.ajax({
     url: config.apiUrl + '/games',
@@ -66,9 +64,9 @@ const gameCreate = function (data) {
     data
   })
 }
-// ------------------------
+
 const gameDestory = function (data) {
-  // console.log('gameDestory is firing')
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     headers: {
@@ -79,7 +77,7 @@ const gameDestory = function (data) {
 }
 
 const gameShow = function (data) {
-  // console.log('gameIndex is firing')
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     headers: {
@@ -88,7 +86,7 @@ const gameShow = function (data) {
     method: 'GET'
   })
 }
-// -----------------  ----
+
 const gameUpdate = function (data) {
   console.log('gameUpdate is firing')
   return $.ajax({
