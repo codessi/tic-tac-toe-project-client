@@ -1,6 +1,7 @@
 'use strict'
 const events = require('./events')
 const store = require('./store')
+// const app=require('/app')
 
 const signUpSuccess = function (response) {
   $('#message').html('Sign Up of ' + response.user.email + ' is successful! ')
@@ -74,6 +75,7 @@ const onGameCreateSuccess = function (response) {
  
   store.game = response.game
   console.log(store)
+  // console.log(app.arr)
   $('#board').show()
   $('.square-box').css("background-image","")
   $('#index-display').html(`<h1>Lets Play!</h1>`)

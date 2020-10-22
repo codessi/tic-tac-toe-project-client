@@ -43,27 +43,31 @@ $(() => {
 
 })
 
-const arr = ['', '', '', '', '', '', '', '', '']
+let arr = ['', '', '', '', '', '', '', '', '']
 let player = 'x'
 let counter = 0
 let over = false
 let index
-
+console.log(arr)
 $('.square-box').on('click', function (e) {
-  if (player === 'x' & over === false) {
+  index = e.target.id
+  console.log(index)
+  
+  if (arr[index]==='' && player === 'x' && over === false) {
     $(e.target).css('background-image', 'url(./../../public/x.png)')
   
-    index = e.target.id
+    
     arr[index] = 'x'
     console.log(index)
     
     checkforwin()
     updateGame(index, 'x', over)
     player = 'o'
-    $(e.target).off('click')
+    console.log(arr)
+    // $(e.target).off('click')
 
 
-    } else if (over === false) {
+    } else if (arr[index]==='' && player === 'o' && over === false) {
     
     $(e.target).css('background-image', 'url(./../../public/o.png)')
 
@@ -75,8 +79,9 @@ $('.square-box').on('click', function (e) {
     checkforwin()
     updateGame(index, 'o', over)
     player = 'x'
-    $(e.target).off('click')
+    // $(e.target).off('click')
     }
+    console.log(arr)
   }
    
  
@@ -91,6 +96,7 @@ const checkforwin = function () {
   if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    arr= ['', '', '', '', '', '', '', '', '']
   } else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)

@@ -27,6 +27,7 @@ const onSignIn = function (event) {
   
   api.signIn(data)
     .then(ui.signInSuccess)
+    .then(onGameCreate)
     .catch(ui.signInFail)
 }
 
@@ -65,6 +66,7 @@ const onGameCreate = function (event) {
 
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
+    // .then(app.arr=['', '', '', '', '', '', '', '', ''])
     .catch(ui.onGameCreateFail)
 }
 
