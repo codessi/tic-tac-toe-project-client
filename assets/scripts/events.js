@@ -27,7 +27,7 @@ const onSignIn = function (event) {
   
   api.signIn(data)
     .then(ui.signInSuccess)
-    .then(onGameCreate)
+    // .then(onGameCreate)
     .catch(ui.signInFail)
 }
 
