@@ -45,46 +45,42 @@ $(() => {
 
 })
 
-let arr = ['','','','','','','','','']
+// let arr = ['','','','','','','','','']
 // let arr = store.game
 let player = 'x'
 let counter = 0
-let over = false
+// let over = false
 let index
-console.log(arr)
+// console.log(arr)
 $('.square-box').on('click', function (e) {
   index = e.target.id
   console.log(index)
   
-  if (arr[index]==='' && player === 'x' && over === false) {
+  if (store.game.cells[index]==='' && player === 'x' && store.game.over === false) {
     $(e.target).css('background-image', 'url(./../../public/x.png)')
-  
-    
-    arr[index] = 'x'
     console.log(index)
-    
-    checkforwin()
     updateGame(index, 'x', over)
     player = 'o'
-    console.log(arr)
-    // $(e.target).off('click')
+    checkforwin()
 
 
-    } else if (arr[index]==='' && player === 'o' && over === false) {
+    } else if (store.game.cells[index]==='' && player === 'o' && over === false) {
     
     $(e.target).css('background-image', 'url(./../../public/o.png)')
 
     
     index = e.target.id
-    arr[index] = 'o'
+    // arr[index] = 'o'
 
     
-    checkforwin()
+  
     updateGame(index, 'o', over)
     player = 'x'
+    checkforwin()
     // $(e.target).off('click')
+ 
     }
-    console.log(arr)
+    console.log(store.game.cells)
   }
    
  
@@ -96,33 +92,33 @@ $('.square-box').on('click', function (e) {
 
 const checkforwin = function () {
 
-  if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
+  if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
     // arr= ['', '', '', '', '', '', '', '', '']
-  } else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
+  } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[6] !== "" & arr[6] === arr[7] & arr[6] === arr[8]) {
+  } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[0] !== "" & arr[0] === arr[3] & arr[0] === arr[6]) {
+  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[1] !== "" & arr[1] === arr[4] & arr[1] === arr[7]) {
+  } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[2] !== "" & arr[2] === arr[5] & arr[2] === arr[8]) {
+  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[0] !== "" & arr[0] === arr[4] & arr[0] === arr[8]) {
+  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (arr[2] !== "" & arr[2] === arr[4] & arr[2] === arr[6]) {
+  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
   } 
-  if (arr.indexOf("") === -1) {
+  if (store.game.cells.indexOf("") === -1) {
     $('#index-display').html(`<h1><strong>It\'s Tie!!!</strong></h1>`)
   }
 }
