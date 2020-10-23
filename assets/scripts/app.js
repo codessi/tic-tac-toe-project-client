@@ -6,6 +6,8 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 const events = require('./events')
+const ui = require('./ui')
+const store = require('./store')
 
 $(() => {
   $('#sign-up-form').on('submit', events.onSignUp)
@@ -43,7 +45,8 @@ $(() => {
 
 })
 
-let arr = ['', '', '', '', '', '', '', '', '']
+let arr = ['','','','','','','','','']
+// let arr = store.game
 let player = 'x'
 let counter = 0
 let over = false
@@ -96,7 +99,7 @@ const checkforwin = function () {
   if (arr[0] !== "" & arr[0] === arr[1] & arr[0] === arr[2]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-    arr= ['', '', '', '', '', '', '', '', '']
+    // arr= ['', '', '', '', '', '', '', '', '']
   } else if (arr[3] !== "" & arr[3] === arr[4] & arr[3] === arr[5]) {
     over = true
     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
@@ -136,7 +139,7 @@ const updateGame = function (index, value, over) {
   events.onGameUpdate(data)
 }
 
-module.exports =
-{
-  arr
-}
+// module.exports =
+// {
+//   arr
+// }

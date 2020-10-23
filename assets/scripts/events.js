@@ -66,7 +66,10 @@ const onGameCreate = function (event) {
 
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
-    // .then(app.arr=['', '', '', '', '', '', '', '', ''])
+    .then(() => { api.gameCreate()
+      .then(ui.onGameCreateSuccess)
+      .catch(ui.onGameCreateFail)
+    })
     .catch(ui.onGameCreateFail)
 }
 

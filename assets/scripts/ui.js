@@ -72,9 +72,12 @@ const onGameIndexFail = function (response) {
 }
 
 const onGameCreateSuccess = function (response) {
- 
+  // let arr = store.game.cells
   store.game = response.game
-  console.log(store)
+  // const arr = store.game.cells
+  const cells=response.game.cells 
+  console.log(store.game)
+  console.log('this is cells' , cells)
   // console.log(app.arr)
   $('#board').show()
   $('.square-box').css("background-image","")
