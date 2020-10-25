@@ -88,7 +88,7 @@ const gameShow = function (data) {
 }
 
 const gameUpdate = function (data) {
-  console.log('gameUpdate is firing')
+  // console.log('gameUpdate is firing')
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     headers: {

@@ -76,8 +76,8 @@ const onGameCreateSuccess = function (response) {
   store.game = response.game
   // const arr = store.game.cells
   const cells=response.game.cells 
-  console.log(store.game)
-  console.log('this is cells' , cells)
+  // console.log(store.game)
+  // console.log('this is cells' , cells)
   // console.log(app.arr)
   $('#board').show()
   $('.square-box').css("background-image","")
