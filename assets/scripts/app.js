@@ -22,7 +22,7 @@ $(() => {
   $('#change-password-form').hide()
   $('#change-password-link').on('click', function (e) {
     e.preventDefault()
-  $('#change-password-form').show()
+    $('#change-password-form').show()
 
   })
 
@@ -47,88 +47,48 @@ $(() => {
 
 // let arr = ['','','','','','','','','']
 // let arr = store.game
-let player = 'x'
-let counter = 0
-// let over = false
-let index
+// let player = 'x'
+// let counter = 0
+// // let over = false
+// let index
 // console.log(arr)
-$('.square-box').on('click', function (e) {
-  index = e.target.id
-  console.log(index)
-  
-  if (store.game.cells[index]==='' && player === 'x' && store.game.over === false) {
-    updateGame(index, 'x', store.game.over)
-    $(e.target).css('background-image', 'url(./../../public/x.png)')
-    console.log(index)
-    console.log(store.game.cells)
-    player = 'o'
-    checkforwin()
-    
+$('.square-box').on('click', events.gameLogic)
+// const checkforwin = function () {
+//   if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//     // arr= ['', '', '', '', '', '', '', '', '']
+//   } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+//   }
+//   if (store.game.cells.indexOf("") === -1) {
+//     store.game.over = true
+//     $('#index-display').html(`<h1><strong>It\'s Tie!!!</strong></h1>`)
+//   }
+// }
 
 
-    } else if (store.game.cells[index]==='' && player === 'o' && store.game.over === false) {
-    
-    $(e.target).css('background-image', 'url(./../../public/o.png)')
-
-    index = e.target.id
-    // arr[index] = 'o'
-
-    updateGame(index, 'o', store.game.over)
-    player = 'x'
-    checkforwin()
-    // $(e.target).off('click')
- 
-    }
-    console.log(store.game.cells)
-  }
-)
-
-const checkforwin = function () {
-  if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-    // arr= ['', '', '', '', '', '', '', '', '']
-  } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
-    store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-  }
-  if (store.game.cells.indexOf("") === -1) {
-    store.game.over = true
-    $('#index-display').html(`<h1><strong>It\'s Tie!!!</strong></h1>`)
-  }
-}
-const updateGame = function (index, value, over) {
-  const data = {
-    'game': {
-      'cell': {
-        'index': `${index}`,
-        'value': `${value}`
-      },
-      'over': `${over}`
-    }
-  }
-  events.onGameUpdate(data)
-}
 
 // module.exports =
 // {
-//   arr
+//   checkforwin
 // }

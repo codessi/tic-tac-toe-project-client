@@ -3,6 +3,7 @@ const api = require('./api')
 const getFormFields = require('./../../lib/get-form-fields')
 const ui = require('./ui')
 const app = require('./app')
+const store = require('./store')
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -93,8 +94,100 @@ const onGameUpdate = function (data) {
   console.log(data)
   api.gameUpdate(data)
     .then(ui.onGameUpdateSuccess)
+    .then(checkforwin)
     .catch(ui.onGameUpdateFail)
 }
+
+let player = 'x'
+let counter = 0
+// let over = false
+let index
+
+function gameLogic (e) {
+  index = e.target.id
+  console.log(index)
+  
+  if (store.game.cells[index]==='' && player === 'x' && store.game.over === false) {
+    
+    $(e.target).css('background-image', 'url(./../../public/x.png)')
+    console.log(index)
+    updateGame(index, player, store.game.over)
+    // console.log(store.game.cells)
+    checkforwin()
+    player = 'o'
+    // player === x ? o : x
+  
+    
+
+
+  } else if (store.game.cells[index]==='' && player === 'o' && store.game.over === false) {
+    
+    $(e.target).css('background-image', 'url(./../../public/o.png)')
+
+    index = e.target.id
+    // arr[index] = 'o'
+
+    updateGame(index, player, store.game.over)
+    checkforwin()
+    // player === x ? o : x
+    player = 'x'
+    // events.checkforwin()
+    // $(e.target).off('click')
+ 
+  }
+  
+  console.log(store.game.cells)
+  
+}
+
+
+
+const checkforwin = function () {
+  if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    // arr= ['', '', '', '', '', '', '', '', '']
+  } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
+    store.game.over = true
+    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+  }
+  if (store.game.cells.indexOf("") === -1) {
+    store.game.over = true
+    $('#index-display').html(`<h1><strong>It\'s Tie!!!</strong></h1>`)
+  }
+}
+
+const updateGame = function (index, value, over) {
+  const data = {
+    game: {
+      cell: {
+        index: index,
+        value: value
+      },
+      over: over
+    }
+  }
+  onGameUpdate(data)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -104,5 +197,7 @@ module.exports = {
   onGameCreate,
   onGameDestory,
   onGameShow,
-  onGameUpdate
+  onGameUpdate,
+  checkforwin,
+  gameLogic
 }

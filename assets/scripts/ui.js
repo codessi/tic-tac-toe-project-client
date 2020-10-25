@@ -91,6 +91,7 @@ const onGameCreateFail = function (response) {
 const onGameUpdateSuccess = function (response) {
   console.log('onGameUpdateSuccess')
   store.game = response.game
+  console.log(store.game.cells)
   console.log(store.game)
   
 }
