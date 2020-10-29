@@ -50,6 +50,7 @@ const onSignOut = function (event) {
 
   api.signOut()
     .then(ui.signOutSuccess)
+    .then(() => location.reload())
     .catch(ui.signOutFail)
 }
 
@@ -67,10 +68,10 @@ const onGameCreate = function (event) {
 
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
-    .then(() => { api.gameCreate()
-      .then(ui.onGameCreateSuccess)
-      .catch(ui.onGameCreateFail)
-    })
+    // .then(() => { api.gameCreate()
+    //   .then(ui.onGameCreateSuccess)
+    //   .catch(ui.onGameCreateFail)
+    // })
     .catch(ui.onGameCreateFail)
 }
 
@@ -114,8 +115,10 @@ function gameLogic (e) {
     updateGame(index, player, store.game.over)
     // console.log(store.game.cells)
     checkforwin()
-    player = 'o'
-    // player === x ? o : x
+    // player = 'o'
+    // player === 'x '? 'o ': ' x'
+    
+      
   
     
 
@@ -129,13 +132,17 @@ function gameLogic (e) {
 
     updateGame(index, player, store.game.over)
     checkforwin()
-    // player === x ? o : x
-    player = 'x'
+    // player === 'x '? 'o ': ' x'
+    // player = 'x'
     // events.checkforwin()
     // $(e.target).off('click')
  
   }
-  
+  // player === x ? o : x
+  if (player === 'x') {
+    return player = 'o'} else if (player ==='o'){
+     return player = 'x'}
+
   console.log(store.game.cells)
   
 }
@@ -145,29 +152,29 @@ function gameLogic (e) {
 const checkforwin = function () {
   if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
-    // arr= ['', '', '', '', '', '', '', '', '']
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+
   } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${player}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
   }
   if (store.game.cells.indexOf("") === -1) {
     store.game.over = true

@@ -49,13 +49,21 @@ const changePasswordFail = function (response) {
 }
 
 const signOutSuccess = function () {
-  $('#message').html('Sign Out Successfu,  Good Bye!')
+  $('#message').html('Sign Out Successful,  Good Bye!')
   $('#message').show()
+  $('#sign-in-form').show()
+  $('#board').hide()
+  $('#sign-out-form').hide()
+  $('#index-display').hide()
+  $('#game-create').hide()
 }
 
 const signOutFail = function (response) {
-  $('#message').html('Sign Out Fail')
+  $('#message').html('Signed Out')
   $('#message').show()
+  $('#sign-in-form').show()
+  $('#sign-out-form').hide()
+ 
 }
 
 const onGameIndexSuccess = function (response) {
@@ -75,7 +83,7 @@ const onGameCreateSuccess = function (response) {
   // let arr = store.game.cells
   store.game = response.game
   // const arr = store.game.cells
-  const cells=response.game.cells 
+  const cells = response.game.cells
   // console.log(store.game)
   // console.log('this is cells' , cells)
   // console.log(app.arr)

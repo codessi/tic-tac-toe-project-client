@@ -33,6 +33,7 @@ $(() => {
 
 
   $('#game-create').on('click', events.onGameCreate)
+  // game cre   (  arr = ['','','','','','','','',''])
   $('#game-create').hide()
  
   $('#game-destory').on('click', events.onGameDestory)
@@ -45,7 +46,7 @@ $(() => {
 
 })
 
-// let arr = ['','','','','','','','','']
+// let arr = ['x','','sx','',sx'','','x','','']
 // let arr = store.game
 // let player = 'x'
 // let counter = 0
