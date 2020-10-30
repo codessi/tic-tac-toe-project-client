@@ -125,7 +125,7 @@ function gameLogic (e) {
 
   } else if (store.game.cells[index]==='' && player === 'o' && store.game.over === false) {
     
-    $(e.target).css('background-image', 'url(./../../public/o.png)')
+    $(e.target).css('background-image', 'url(https://user-images.githubusercontent.com/51131852/97760169-c1f3fb00-1abf-11eb-80f2-c486ca44c21e.png)')
 
     index = e.target.id
     // arr[index] = 'o'
