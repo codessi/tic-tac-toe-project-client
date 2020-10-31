@@ -14,6 +14,7 @@ const signUpSuccess = function (response) {
 }
 const signUpFail = function () {
   $('#message').html('Sign Up failed,  try again')
+  $('#sign-up-form')[0].reset()
 }
 
 const signInSuccess = function (response) {
