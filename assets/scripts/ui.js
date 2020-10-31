@@ -39,8 +39,13 @@ const signInFail = function (response) {
 }
 
 const changePasswordSuccess = function (response) {
-  $('#message').html('Password Change Success, Sign in with new password')
-  $('#sign-in-form').show()
+  $('#message').show()
+  $('#message').html('Password Change Success')
+  $('#message').delay(5000).fadeOut('slow')
+  $('#sign-in-form').hide()
+  $('#change-password-form').hide()
+  $('#sign-out-form').hide()
+  
 }
 
 const changePasswordFail = function (response) {
