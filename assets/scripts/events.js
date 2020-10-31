@@ -34,7 +34,7 @@ const onSignIn = function (event) {
 
 const onPasswordChange = function (event) {
   event.preventDefault()
-  console.log('onPasswordChange is firing ')
+  // console.log('onPasswordChange is firing ')
   const form = event.target
   const data = getFormFields(form)
 
@@ -68,6 +68,7 @@ const onGameCreate = function (event) {
 
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
+    .then(() => player = 'x')
     // .then(() => { api.gameCreate()
     //   .then(ui.onGameCreateSuccess)
     //   .catch(ui.onGameCreateFail)
