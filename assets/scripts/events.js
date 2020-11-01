@@ -140,9 +140,9 @@ function gameLogic (e) {
  
   }
   // player === x ? o : x
-  if (player === 'x') {
-    return player = 'o'} else if (player ==='o'){
-     return player = 'x'}
+  // if (player === 'x') {
+  //   return player = 'o'} else if (player ==='o'){
+  //    return player = 'x'}
 
   console.log(store.game.cells)
   
