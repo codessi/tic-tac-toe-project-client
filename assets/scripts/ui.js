@@ -25,8 +25,8 @@ const signInSuccess = function (response) {
   
   // $('#number-display').show()
   // $('#board').show()
-  console.log('signin response is '+ response)
-  console.log(response.games)
+  // console.log('signin response is '+ response)
+  // console.log(response.games)
   // $('#number-display').html(`Game No. ${store.game.length}`)  
   $('#sign-in-form').hide()
   
@@ -75,9 +75,9 @@ const signOutFail = function (response) {
 const onGameIndexSuccess = function (response) {
   const game = response.games
   
-  console.log(response)
-  console.log(response.games)
-  $('#number-display').html(`<h1> Number of play: ${game.length}</h1>`)
+  // console.log(response)
+  // console.log(response.games)
+  $('#index-display').html(`<h1> GAME #: ${game.length}</h1>`)
  
 }
 const onGameIndexFail = function (response) {
@@ -87,6 +87,7 @@ const onGameIndexFail = function (response) {
 
 const onGameCreateSuccess = function (response) {
   // let arr = store.game.cells
+  
   store.game = response.game
   // const arr = store.game.cells
   const cells = response.game.cells
@@ -95,7 +96,8 @@ const onGameCreateSuccess = function (response) {
   // console.log(app.arr)
   $('#board').show()
   $('.square-box').css("background-image","")
-  $('#index-display').html(`<h1>Lets Play!</h1>`)
+  // $('#index-display').html(`<h1>Lets Play!</h1>`)
+  $('#game-index').show()
  
 }
 
@@ -103,10 +105,10 @@ const onGameCreateFail = function (response) {
   $('#message').html('Sorry, Create Game Unsuccessful')
 }
 const onGameUpdateSuccess = function (response) {
-  console.log('onGameUpdateSuccess')
+  // console.log('onGameUpdateSuccess')
   store.game = response.game
-  console.log(store.game.cells)
-  console.log(store.game)
+  // console.log(store.game.cells)
+  // console.log(store.game)
   
 }
 

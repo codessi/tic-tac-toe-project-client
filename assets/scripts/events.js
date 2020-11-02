@@ -45,7 +45,7 @@ const onPasswordChange = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('onSignOut is firing')
+  // console.log('onSignOut is firing')
 
 
   api.signOut()
@@ -56,7 +56,8 @@ const onSignOut = function (event) {
 
 const onGameIndex = function (event) {
   event.preventDefault()
-  console.log(api.gameIndex())
+  console.log('gameindexisfirying')
+  // console.log(api.gameIndex())
   api.gameIndex()
     .then(ui.onGameIndexSuccess)
     .catch(ui.onGameIndexFail)
@@ -69,6 +70,7 @@ const onGameCreate = function (event) {
   api.gameCreate()
     .then(ui.onGameCreateSuccess)
     .then(() => player = 'x')
+    .then (onGameIndex)
     // .then(() => { api.gameCreate()
     //   .then(ui.onGameCreateSuccess)
     //   .catch(ui.onGameCreateFail)
@@ -93,7 +95,7 @@ const onGameShow = function (event) {
 
 const onGameUpdate = function (data) {
 
-  console.log(data)
+  // console.log(data)
   api.gameUpdate(data)
     .then(ui.onGameUpdateSuccess)
     .then(checkforwin)
@@ -107,18 +109,18 @@ let index
 
 function gameLogic (e) {
   index = e.target.id
-  console.log(index)
+  // console.log(index)
   
   if (store.game.cells[index]==='' && player === 'x' && store.game.over === false) {
     
     $(e.target).css('background-image', "url('public/x.png')")
-    console.log(index)
+    // console.log(index)
     updateGame(index, player, store.game.over)
     // console.log(store.game.cells)
     checkforwin()
     // player = 'o'
-    // player === 'x '? 'o ': ' x'
-    
+    // player === 'x' ? 'o': 'x'
+    $('#index-display').html(`<h1> ${(player=player === 'x' ? 'o': 'x').toUpperCase()} turn </h1>`)
       
   
     
@@ -137,14 +139,15 @@ function gameLogic (e) {
     // player = 'x'
     // events.checkforwin()
     // $(e.target).off('click')
- 
+    $('#index-display').html(`<h1> ${(player=player === 'x' ? 'o': 'x').toUpperCase()} turn </h1>`)
   }
-  // player === x ? o : x
+  // player = player === 'x' ? 'o' : 'x'
   // if (player === 'x') {
   //   return player = 'o'} else if (player ==='o'){
   //    return player = 'x'}
+    
 
-  console.log(store.game.cells)
+//   // console.log(store.game.cells)
   
 }
 
@@ -153,29 +156,29 @@ function gameLogic (e) {
 const checkforwin = function () {
   if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[1] & store.game.cells[0] === store.game.cells[2]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
 
   } else if (store.game.cells[3] !== "" & store.game.cells[3] === store.game.cells[4] & store.game.cells[3] === store.game.cells[5]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[6] !== "" & store.game.cells[6] === store.game.cells[7] & store.game.cells[6] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[3] & store.game.cells[0] === store.game.cells[6]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[1] !== "" & store.game.cells[1] === store.game.cells[4] & store.game.cells[1] === store.game.cells[7]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[5] & store.game.cells[2] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[0] !== "" & store.game.cells[0] === store.game.cells[4] & store.game.cells[0] === store.game.cells[8]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   } else if (store.game.cells[2] !== "" & store.game.cells[2] === store.game.cells[4] & store.game.cells[2] === store.game.cells[6]) {
     store.game.over = true
-    $('#index-display').html(`<h1>Player <strong>"${store.game.cells[index]}"</strong> won</h1>`)
+    $('#index-display').html(`<h1>Player <strong>${store.game.cells[index].toUpperCase()}</strong> won</h1>`)
   }
   if (store.game.cells.indexOf("") === -1) {
     store.game.over = true

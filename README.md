@@ -31,6 +31,9 @@ After a few hours of planning, I split tasks into smaller pieces.  I created a t
 - Javascript
 - Ajax
 - jQuery
+
+### Wireframes
+![IMG_0327](https://user-images.githubusercontent.com/51131852/97819088-61012a00-1c5b-11eb-8246-540a569df1f7.jpg)
  
 ### Unsolved Problems
 - Still need to complete function of reset after game, password change show properly,
