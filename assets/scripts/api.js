@@ -30,7 +30,7 @@ const changePassword = function (data) {
 }
 
 const signOut = function (data) {
-  console.log('signOut is firing ')
+
   return $.ajax({ 
     url: config.apiUrl + '/sign-out',
     headers: {
@@ -42,7 +42,7 @@ const signOut = function (data) {
 }
 
 const gameIndex = function () {
-  // console.log('gameIndex is firing')
+
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {
@@ -88,7 +88,7 @@ const gameShow = function (data) {
 }
 
 const gameUpdate = function (data) {
-  // console.log('gameUpdate is firing')
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     headers: {
