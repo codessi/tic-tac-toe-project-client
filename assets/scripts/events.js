@@ -42,7 +42,7 @@ const onSignOut = function (event) {
 
   api.signOut()
     .then(ui.signOutSuccess)
-    .then(() => location.reload())
+    // .then(() => location.reload())
     .catch(ui.signOutFail)
 }
 
@@ -98,7 +98,7 @@ function gameLogic (e) {
     $(e.target).css('background-image', "url('public/x.png')")
     updateGame(index, player, store.game.over)
     checkforwin()
-    $('#index-display').html(`<h1> ${(player = player === 'x' ? 'o' : 'x').toUpperCase()} turn </h1>`)
+    $('#index-display').html(`<h1> ${(player = player === 'x' ? 'o' : 'x').toUpperCase()}\'s turn </h1>`)
   } else if (store.game.cells[index] === '' && player === 'o' && store.game.over === false) {
     $(e.target).css('background-image', "url('public/o.png')")
 
@@ -107,7 +107,7 @@ function gameLogic (e) {
     updateGame(index, player, store.game.over)
     checkforwin()
 
-    $('#index-display').html(`<h1> ${(player=player === 'x' ? 'o' : 'x').toUpperCase()} turn </h1>`)
+    $('#index-display').html(`<h1> ${(player=player === 'x' ? 'o' : 'x').toUpperCase()}\'s turn </h1>`)
   }
 }
 

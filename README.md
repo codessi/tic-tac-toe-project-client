@@ -39,9 +39,11 @@ After a few hours of planning, I split tasks into smaller pieces.  I created a t
 ![IMG_0327](https://user-images.githubusercontent.com/51131852/97819346-d3263e80-1c5c-11eb-8e8f-917d5fb8b2e7.jpg)
  
 ### Unsolved Problems
-- Still need to complete function of reset after game, password change show properly,
-show number of the game without the extra click
-- Would like to eventually have better-organized code,
-less click for initial create a game, show game number, add extra color.
+- show numbers of the game without the extra click
+- Would like to eventually have better-organized code, DRY code
+- less click for initial create a game, show game number- add extra color.
+- I would like to design for users to click less when unnecessary. i.e sign up lead to automatic sign in
+- This code has a lot of show and hide and it takes a lot of adjustments.
+- Adjust Size of Button and colors- create borders at the beginning for better user experience
  
 

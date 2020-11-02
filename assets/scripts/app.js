@@ -18,6 +18,7 @@ $(() => {
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onPasswordChange)
   $('#change-password-form').hide()
+  $('#change-password-link').hide()
   $('#change-password-link').on('click', function (e) {
     e.preventDefault()
     $('#change-password-form').show()
