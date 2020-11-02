@@ -23,6 +23,9 @@ After a few hours of planning, I split tasks into smaller pieces.  I created a t
 - As a user, I want to sign out 
 - As a user, I want to play tic tac toe game
 - As a user, I want to see my score
+- As a user, I want to replay after game is done
+- As a user, I want to see who wins
+
  
 ### Technologies Used
 - HTML
