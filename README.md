@@ -33,7 +33,7 @@ After a few hours of planning, I split tasks into smaller pieces.  I created a t
 - jQuery
 
 ### Wireframes
-![IMG_0327](https://user-images.githubusercontent.com/51131852/97819088-61012a00-1c5b-11eb-8246-540a569df1f7.jpg)
+![IMG_0327](https://user-images.githubusercontent.com/51131852/97819346-d3263e80-1c5c-11eb-8e8f-917d5fb8b2e7.jpg)
  
 ### Unsolved Problems
 - Still need to complete function of reset after game, password change show properly,
